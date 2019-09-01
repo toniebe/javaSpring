@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<h3>Halaman Kelas</h3>
+<form th:object="${kelas}"
+      th:method="post"
+      th:action="@{/kelasPost}">
+    <label for="kelas"> kelas </label>
+    <input type="text" name="nama" id="kelas" th:field="{kelas}">
+    <label for="matkul"> matakuliah </label>
+    <input type="text" name="matkul" id="matkul" th:field="{matkul}">
+    <button type="submit" class="btn btn-primary">Kirim</button>
+    <button type="reset" class="btn btn-warning">Reset</button>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <td>No</td>
+        <td>kelas</td>
+        <td>matkul</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student,iterStat: {listKelas}">
+        <td th:text="${iterStat.count}">1</td>
+        <td th:text="${student.kelas}">ebed</td>
+        <td th:text="${student.matkul}">22</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
